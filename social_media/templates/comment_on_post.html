@@ -1,0 +1,15 @@
+{% extends 'home.html' %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h2 class="mb-4">Comment on Post</h2>
+        <form method="post" action="{% url 'comment_on_post' post_id=post.id %}" class="col-md-6">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="content" class="form-label">Comment:</label>
+                <textarea name="content" class="form-control" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Comment</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+<!-- templates/create_post.html -->
+{% extends 'base.html' %}
+
+{% block title %}Create Post{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h2 class="mb-4">Create Post</h2>
+        <form method="post" action="{% url 'create_post' %}" class="col-md-6">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="title" class="form-label">Title:</label>
+                <input type="text" name="title" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">Content:</label>
+                <textarea name="content" class="form-control" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Create Post</button>
+        </form>
+    </div>
+{% endblock %}
